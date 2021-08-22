@@ -4,11 +4,19 @@
 
 require('cc-things-functions.js');
 
+const emptyLine = /^$/ ;
+var lines = draft.content.split('\n');
+lines.shift();
+if (lines[0].match(emptyLine)) {
+  lines.shift();
+}
+var body = lines.join('\n');
+
 var todo = TJSTodo.create();
 todo.title = draft.title;
-todo.notes = draft.content;
+todo.notes = body;
 for (n in draft.tags) {
-    todo.addTag(draft.tags[n]);
+  todo.addTag(draft.tags[n]);
 }
 message = thingsContainer([todo]);
 alert(message);
