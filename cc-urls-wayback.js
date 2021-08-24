@@ -1,25 +1,28 @@
-// Check availability of URL in Wayback Machine.
-// https://archive.org/help/wayback_api.php
+/**
+ * @file Drafts script that checks availability of the given URL in the Wayback Machine and opens the closest snapshot in Safari if found.
+ * @author Claudine Chionh <info@claudinec.net>
+ * @version 0.1.0
+ */
 
-const availQuery = 'https://archive.org/wayback/available?url=';
-var availUrl = availQuery + draft.content;
+const availQuery = 'https://archive.org/wayback/available?url='
+const availUrl = availQuery + draft.content
 
-var http = HTTP.create();
+const http = HTTP.create()
 
-var response = http.request({
-  "url": availUrl,
-  "method": "GET"
-});
+const response = http.request({
+  'url': availUrl,
+  'method': 'GET'
+})
 
 if (response.success) {
-  var data = response.responseData;
+  const data = response.responseData
   if (data.archived_snapshots.closest) {
-    app.openURL(data.archived_snapshots.closest.url, useSafari=false);
+    app.openURL(data.archived_snapshots.closest.url, useSafari = false)
   }
   else {
-    alert('No snapshot available');
+    alert('No snapshot available')
   }
 }
 else {
-  alert(response.statusCode + response.error);
+  alert(response.statusCode + response.error)
 }

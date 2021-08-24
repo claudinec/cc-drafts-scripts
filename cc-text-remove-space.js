@@ -1,5 +1,6 @@
 // Remove internal spaces from text.
-const regex = /\s/g ;
-var textOld = draft.content;
-var textNew = textOld.replace(regex, '');
-draft.append(textNew);
+const regex = /\s/g
+const textOld = draft.content
+const textNew = textOld.replace(regex, '')
+draft.content = textNew
+
