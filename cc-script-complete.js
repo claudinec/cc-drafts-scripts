@@ -1,3 +1,3 @@
 // Clear the system clipboard and complete the script.
-app.setClipboard('');
+app.setClipboard("");
 script.complete();

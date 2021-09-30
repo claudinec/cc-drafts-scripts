@@ -1,2 +1,2 @@
 // Clear the system clipboard.
-app.setClipboard('');
+app.setClipboard("");
