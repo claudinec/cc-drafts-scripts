@@ -1,17 +1,25 @@
 /**
  * @file Drafts script that checks availability of the given URL in the Wayback Machine and opens the closest snapshot in Safari if found.
  * @author Claudine Chionh <info@claudinec.net>
- * @version 0.1.0
+ * @version 0.1.1
  */
 
-const availQuery = 'https://archive.org/wayback/available?url='
-const availUrl = availQuery + draft.content
+const availQuery = "https://archive.org/wayback/available?url="
+
+const selection = editor.getSelectedText()
+if (selection == "") {
+  var draftUrl = draft.content
+} else {
+  var draftUrl = selection
+}
+
+const availUrl = availQuery + draftUrl
 
 const http = HTTP.create()
 
 const response = http.request({
-  'url': availUrl,
-  'method': 'GET'
+  "url": availUrl,
+  "method": "GET"
 })
 
 if (response.success) {
@@ -20,7 +28,7 @@ if (response.success) {
     app.openURL(data.archived_snapshots.closest.url, useSafari = false)
   }
   else {
-    alert('No snapshot available')
+    alert("No snapshot available")
   }
 }
 else {
