@@ -28,7 +28,7 @@ if (response.success) {
     app.openURL(data.archived_snapshots.closest.url, useSafari = false)
   }
   else {
-    alert("No snapshot available")
+    alert("No snapshots available")
   }
 }
 else {
