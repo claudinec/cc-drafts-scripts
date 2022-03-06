@@ -1,11 +1,11 @@
 /**
  * @file Drafts script that checks availability of the given URL in Memento Time Travel and opens the closest snapshot in Safari if found.
  * @author Claudine Chionh <info@claudinec.net>
- * @version 0.1.0
+ * @version 0.1.1
  */
 
 const currentDate = new Date().getFullYear()
-const timetravelQuery = "http://timetravel.mementoweb.org/api/json/" + currentDate + "/"
+const timetravelQuery = "https://timetravel.mementoweb.org/api/json/" + currentDate + "/"
 
 const selection = editor.getSelectedText()
 if (selection == "") {
