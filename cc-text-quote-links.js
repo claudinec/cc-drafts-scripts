@@ -5,7 +5,7 @@
  * @license GPL-3.0-or-later
  */
 const mdRe = /(\[.*?\]\(https?.*?\))/g
-// const urlRe = /\s|\n(https?.*?)\s|\n/g
+// const urlRe = /\s+(https?.*?)\s*/g
 const textOld = draft.content
 const textNew = textOld.replaceAll(mdRe, '\"$1\"')
 draft.content = textNew
